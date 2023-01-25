@@ -3,6 +3,9 @@ import dbConnect from '../lib/dbConnect'
 import Persona from '../models/Persona.jsx'
 import Link from 'next/link'
 import styles from '../css/principal.module.css'
+import FormGroup from "../components/FormGroup.jsx";
+
+
 
 export default function Index ({pruebas}) {
   const router = useRouter()
@@ -21,6 +24,7 @@ export default function Index ({pruebas}) {
 
  return(
   <>
+    <FormGroup />
   
   <h1>Lista de Precios</h1>
   <Link className={styles.a} href="/new">
@@ -35,6 +39,9 @@ export default function Index ({pruebas}) {
         Precio
       </div>
       <div className={styles.cabeza}>
+        Url
+      </div>
+      <div className={styles.cabeza}>
         Acciones
       </div>
     </div>
@@ -47,6 +54,9 @@ export default function Index ({pruebas}) {
                       </div>
                       <div className={styles.edad} >
                         $ {val.edad}
+                      </div>
+                      <div className={styles.url} >
+                       {val.url}
                       </div>
                       <div className={styles.acciones} >
                       <Link  className="btn btn-warning me-2"

@@ -21,13 +21,17 @@
    text-align: center;
    font-weight: 600;
    padding: 10px;
-}
-.nombre, .edad, .acciones {
+} 
+
+.nombre, .edad, .acciones, .url {
     border-left: 1px solid gray;
     width: 33vw;
 
    padding: 10px;
     color: #555;
+}
+.url{
+    color:red
 }
 .acciones .buttonEliminar{
    margin: 0 5px;

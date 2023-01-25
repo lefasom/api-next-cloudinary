@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useRouter } from "next/router"; 
-// import { useState } from "react";
 import dbConnect from "../../lib/dbConnect";
 import Persona from "../../models/Persona";
 
@@ -20,7 +19,7 @@ export default function Index({ persona }) {
     }
   };
 
-  return (
+  return (<>
     <div className="container">
       <h1 className="my-2">Detalle:</h1>
       <div className="card">
@@ -44,7 +43,7 @@ export default function Index({ persona }) {
         </div>
       </div>
     </div>
-  );
+    </>);
 }
 
 export async function getServerSideProps({ params }) {

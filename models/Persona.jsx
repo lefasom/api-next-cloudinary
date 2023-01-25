@@ -9,7 +9,9 @@ const PruebaSchema = new mongoose.Schema({
     edad: {
       type: String,
       required: [true, 'Por favor ingresa edad.'],
-      maxlength: [60, 'Name cannot be more than 60 characters'],
+    },
+    url: {
+      type: String,
     }
    
   })

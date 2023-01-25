@@ -9,7 +9,7 @@ function Form({formData, forNewPerson = true}) {
     const [form, setForm] = useState({
         nombre: formData.nombre,
         edad: formData.edad,
-
+        url: formData.url,
     })
     const [message, setMessage] = useState("");
 

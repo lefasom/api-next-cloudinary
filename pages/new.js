@@ -6,6 +6,8 @@ function New() {
     const formData = {
         nombre: "",
         edad: "",
+        url: "",
+
     }
 
   return (<>
