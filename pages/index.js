@@ -26,7 +26,7 @@ export default function Index ({pruebas}) {
   <>
     {/* <FormGroup /> */}
   
-  <h1>Lista de Precios</h1>
+  <h1>Personajes</h1>
   <Link className={styles.a} href="/new">
      Agregar
   </Link>
