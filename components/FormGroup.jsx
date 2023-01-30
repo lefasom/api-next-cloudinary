@@ -1,33 +1,42 @@
 import React, {useState, useEffect} from 'react'
 import styles from '../css/formGroup.module.css'
 import Axios from 'axios'
-function FormGroup() {
 
+function FormGroup({ formData, setFormData} ) {
     const [ image, setImage ] = useState("")
-    const [ imagew, setImagew ] = useState({})
+    const [ nombre, setNombre ] = useState("")
+    const [ edad, setEdad ] = useState("")
+
+
+    const [ datas, setDatas ] = useState({})
 
     const [ loading, setLoading ] = useState(false)
 
   
 
    const onchange = (e) => {
-   setImagew(e.target.files[0])
+   setDatas(e.target.files[0])
    
    }
     const uploadImage = async (e) => {
     
         const data = new FormData()
-        data.append('file', imagew)
+        data.append('file', datas)
         data.append('upload_preset', 'lefasom')
         setLoading(true)
         try {
           const resp = await Axios.post(`https://api.cloudinary.com/v1_1/drgoowdis/image/upload`,
          data
           ) 
-        const file = { url: resp.data.secure_url, cloudId: resp.data.public_id }
-        console.log(file.url)
-        setImage(file.url)
-        setLoading(false)
+          const img = { url: resp.data.secure_url, cloudId: resp.data.public_id }
+          setFormData(curr => ({...curr, url: img.url}))
+          setFormData(curr => ({...curr, nombre: nombre}))
+          setFormData(curr => ({...curr, edad: edad}))
+          
+
+        console.log(img.url)
+        setImage(img.url)
+        setLoading(true)
         } catch (error) {
           console.log(error)
         }
@@ -43,11 +52,21 @@ function FormGroup() {
       type="file"
       onChange={onchange}
     />
+    <input 
+    placeholder='nombre'
+    onChange={(e)=>{setNombre(e.target.value)}}
+    type="text" />
+      <input 
+    placeholder='edad'
+    onChange={(e)=>{setEdad(e.target.value)}}
+    type="text" />
+
     <button onClick={uploadImage}>
-      subir
+      Cargar datos
     </button>
-    {loading?<h3>cargardo imagenes...</h3>: <img src={image}/>}
-    <h2>{image}</h2>
+    {!loading?<h3>cargardo imagenes...</h3>: <img src={image}/>}
+    <p>{image}</p>
+    
   </div>
   )
 }

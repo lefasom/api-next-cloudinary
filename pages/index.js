@@ -24,7 +24,7 @@ export default function Index ({pruebas}) {
 
  return(
   <>
-    <FormGroup />
+    {/* <FormGroup /> */}
   
   <h1>Lista de Precios</h1>
   <Link className={styles.a} href="/new">
@@ -33,13 +33,13 @@ export default function Index ({pruebas}) {
   <div className={styles.tabla} >
     <div className={styles.flex}>
       <div className={styles.cabeza}>
-        Producto
+        Nombre
       </div>
       <div className={styles.cabeza}>
-        Precio
+        Edad
       </div>
       <div className={styles.cabeza}>
-        Url
+        Perfiles
       </div>
       <div className={styles.cabeza}>
         Acciones
@@ -53,10 +53,10 @@ export default function Index ({pruebas}) {
                         {val.nombre}
                       </div>
                       <div className={styles.edad} >
-                        $ {val.edad}
+                        {val.edad}
                       </div>
                       <div className={styles.url} >
-                       {val.url}
+                        <img src={val.url}/>   
                       </div>
                       <div className={styles.acciones} >
                       <Link  className="btn btn-warning me-2"
